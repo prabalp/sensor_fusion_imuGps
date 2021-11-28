@@ -1,0 +1,16 @@
+https://www.matlabcoding.com/2019/10/understanding-sensor-fusion-and_23.html
+
+https://in.mathworks.com/help/supportpkg/arduino/examples/read-serial-data-from-a-gps-shield-using-arduino-hardware.html
+
+
+https://electrosome.com/interfacing-gps-arduino/
+
+https://www.youtube.com/watch?v=hkcP4d6I_b4
+https://core-electronics.com.au/tutorials/how-to-use-gps-with-arduino.html
+https://in.mathworks.com/products/matlab/matlab-and-c.html
+http://controlc.com/d19906cc
+https://in.mathworks.com/help/supportpkg/arduinoio/ref/gpsdev.read.read.html
+https://www.arrow.com/en/research-and-events/articles/hands-on-with-arduino-gps-usage
+https://www.youtube.com/watch?v=hkcP4d6I_b4
+https://www.elithecomputerguy.com/2020/06/arduino-gps-adafruit-ultimate-gps-coordinates-and-speed-display-on-lcd/
+
