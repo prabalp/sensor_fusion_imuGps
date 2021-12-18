@@ -40,7 +40,7 @@ trajAngVel = trajData.AngularVelocity;
 % noise.
 rng(1)
 
-%GPS sensor 
+%GPS sensor, use gpsObj instead of gps aimulation 
 
 gps = gpsSensor('UpdateRate', gpsFs);
 gps.ReferenceLocation = refloc;     
