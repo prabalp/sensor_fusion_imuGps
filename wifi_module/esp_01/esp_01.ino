@@ -1,8 +1,9 @@
+
 #include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 
 // Set these to run example.
-#define FIREBASE_HOST "https://wifiarduino-bc1e8-default-rtdb.asia-southeast1.firebasedatabase.app/"
+#define FIREBASE_HOST "wifiarduino-bc1e8-default-rtdb.asia-southeast1.firebasedatabase.app"
 #define FIREBASE_AUTH "6Z9xYFjFTpjNOwMZdCBD9qaao3RhVbPRvJ0EPNlk"
 #define WIFI_SSID "ASUS_X00TD"
 #define WIFI_PASSWORD "hahaha789014"
@@ -22,6 +23,7 @@ void setup() {
   Serial.println(WiFi.localIP());
   
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+  
 }
 
 int n = 0;
