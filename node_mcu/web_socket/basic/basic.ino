@@ -62,20 +62,32 @@ void setup(void)
 
 void loop(void)
 {
-  StaticJsonBuffer<1000> jsonBuffer;
-  JsonObject& data = jsonBuffer.parseObject(mySerial);
 
-  if (data == JsonObject::invalid()) {
-    //Serial.println("Invalid Json Object");
-    jsonBuffer.clear();
-    return;
-  }
-
-  Serial.println("JSON Object Recieved");
-  String msg = data["haha"];
-  Serial.println(msg);
-
+  //for json
   
-//  String msg = mySerial.readStringUntil('\r');
+//  StaticJsonBuffer<1000> jsonBuffer;
+//  JsonObject& data = jsonBuffer.parseObject(mySerial);
+//
+//  if (data == JsonObject::invalid()) {
+//    //Serial.println("Invalid Json Object");
+//    jsonBuffer.clear();
+//    return;
+//  }
+//
+//  Serial.println("JSON Object Recieved");
+//  String msg = data["IDs"];
 //  Serial.println(msg);
+
+//test
+  DynamicJsonDocument doc(1024);
+  String input = mySerial.readStringUntil('\r');
+  deserializeJson(doc, input);
+  JsonObject obj = doc.as<JsonObject>();
+  String msg = obj[String{"IDs"}];
+  Serial.println(msg);
+  
+//  String msg2 = mySerial.readStringUntil('\r');
+//  Serial.println(msg2);
+
+
 }
