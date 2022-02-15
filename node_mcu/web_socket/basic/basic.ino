@@ -20,6 +20,15 @@ char webpage[] PROGMEM = R"=====(
 <html>
 <script>
 var connection = new WebSocket('ws://'+location.hostname+':81/');
+
+connection.onmessage = function(event){
+  var full_data = event.data;
+  console.log(full_data);
+  var data = JSON.parse(full_data);
+  IMU_data = data.IMU;
+  document.getElementById("IMU_value").innerHTML = IMU_data;
+}
+
 function button_linear_f()
 {
   console.log("LED 1 is ON");
@@ -48,6 +57,7 @@ connection.send("LED 2 is OFF");
 <button onclick= "button_linear_f()" >Front</button><button onclick="button_linear_b()" >Back</button>
 <h3> Angular </h3>
 <button onclick= "button_ang_l()" >Left</button><button onclick="button_ang_r()" >Right</button>
+<h3>Proximity Sensor</h3><h3 id="IMU_value" style="display: inline-block;"> 2 </h3>
 </center>
 </body>
 </html>
@@ -172,9 +182,11 @@ void loop(void)
 //test
   DynamicJsonDocument doc(1024);
   String input = mySerial.readStringUntil('\r');
+  Serial.print(input);
+  websockets.broadcastTXT(input);
   deserializeJson(doc, input);
   JsonObject obj = doc.as<JsonObject>();
-  String msg = obj[String{"IDs"}];
+  String msg = obj[String{"IMU"}];
   Serial.println(msg);
   
 //  String msg2 = mySerial.readStringUntil('\r');
