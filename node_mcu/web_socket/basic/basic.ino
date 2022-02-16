@@ -26,6 +26,7 @@ connection.onmessage = function(event){
   console.log(full_data);
   var data = JSON.parse(full_data);
   IMU_data = data.IMU;
+  console.log(IMU_data);
   document.getElementById("IMU_value").innerHTML = IMU_data;
 }
 
@@ -57,7 +58,7 @@ connection.send("LED 2 is OFF");
 <button onclick= "button_linear_f()" >Front</button><button onclick="button_linear_b()" >Back</button>
 <h3> Angular </h3>
 <button onclick= "button_ang_l()" >Left</button><button onclick="button_ang_r()" >Right</button>
-<h3>Proximity Sensor</h3><h3 id="IMU_value" style="display: inline-block;"> 2 </h3>
+<h3>IMU Sensor</h3><h3 id="IMU_value" style="display: inline-block;"> 2 </h3>
 </center>
 </body>
 </html>
@@ -181,13 +182,14 @@ void loop(void)
 
 //test
   DynamicJsonDocument doc(1024);
-  String input = mySerial.readStringUntil('\r');
-  Serial.print(input);
-  websockets.broadcastTXT(input);
-  deserializeJson(doc, input);
-  JsonObject obj = doc.as<JsonObject>();
-  String msg = obj[String{"IMU"}];
-  Serial.println(msg);
+//  Serial.println(String(mySerial.read()));
+  String input = String(mySerial.read());
+  Serial.println(input);
+//  websockets.broadcastTXT(input);
+//  deserializeJson(doc, input);
+//  JsonObject obj = doc.as<JsonObject>();
+//  String msg = obj[String{"IMU"}];
+//  Serial.println(msg);
   
 //  String msg2 = mySerial.readStringUntil('\r');
 //  Serial.println(msg2);
