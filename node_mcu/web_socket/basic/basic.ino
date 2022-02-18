@@ -183,13 +183,13 @@ void loop(void)
 //test
   DynamicJsonDocument doc(1024);
 //  Serial.println(String(mySerial.read()));
-  String input = String(mySerial.read());
+  String input = mySerial.readStringUntil('\r');
   Serial.println(input);
-//  websockets.broadcastTXT(input);
-//  deserializeJson(doc, input);
-//  JsonObject obj = doc.as<JsonObject>();
-//  String msg = obj[String{"IMU"}];
-//  Serial.println(msg);
+  websockets.broadcastTXT(input);
+  deserializeJson(doc, input);
+  JsonObject obj = doc.as<JsonObject>();
+  String msg = obj[String{"IMU"}];
+  Serial.println(msg);
   
 //  String msg2 = mySerial.readStringUntil('\r');
 //  Serial.println(msg2);
