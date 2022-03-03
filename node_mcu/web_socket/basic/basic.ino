@@ -3,7 +3,7 @@
 #include <ESP8266mDNS.h>
 #include <SoftwareSerial.h>
 #include <ArduinoJson.h>
-SoftwareSerial mySerial (D1, D2); //Rx, Tx pins
+ 
 #elif defined(ESP32)
 #include <WiFi.h>
 #include <ESPmDNS.h>

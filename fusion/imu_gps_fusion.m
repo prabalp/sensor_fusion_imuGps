@@ -1,17 +1,18 @@
 %creating a arduino object 
-a = arduino('COM8', 'Mega2560', 'Libraries', 'Serial');
+a = arduino('COM13', 'Mega2560', 'Libraries', {'I2C', 'Serial'});
 
 %establishing a serial connection and creating gps object 
-gpsObj = gpsdev(a,'SerialPort',1)
+gpsObj = gpsdev(a,'SerialPort', 2);
+gpsFs = 1;
 
 %creating a imu object with sclpin_A5 and sda_pin_A4
 imuFs = 160;
 imu = mpu9250(a,'SampleRate',fs,'OutputFormat','matrix');
 
 
-% Define where on the Earth this simulated scenario takes place using the
+% Define where on the Earth this scenario takes place using the
 % latitude, longitude and altitude.
-refloc = [42.2825 -72.3430 53.0352];   % access this data from sensor 
+%refloc = [42.2825 -72.3430 53.0352];   % access this data from sensor 
 
 
 % Validate that the |gpsFs| divides |imuFs|. This allows the sensor sample 

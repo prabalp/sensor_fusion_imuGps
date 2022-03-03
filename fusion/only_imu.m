@@ -1,5 +1,7 @@
 a = arduino('COM13', 'Mega2560', 'Libraries', {'I2C', 'Serial'});
-serial1 = device(a,'SerialPort',1, 'BaudRate',9600);
+%serial1 = device(a,'SerialPort',1, 'BaudRate',9600);
+gpsObj = gpsdev(a,'SerialPort',2);
+
 fs = 100; % Sample Rate in Hz   
 imu = mpu9250(a,'SampleRate',fs,'SamplesPerRead',1,'OutputFormat','matrix');
 

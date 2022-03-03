@@ -2,7 +2,7 @@
 ## Makefile generated for component 'serial_comm'. 
 ## 
 ## Makefile     : serial_comm.mk
-## Generated on : Wed Feb 16 00:04:08 2022
+## Generated on : Sat Feb 19 20:09:19 2022
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)/serial_comm.elf
 ## Product type : executable
 ## 
