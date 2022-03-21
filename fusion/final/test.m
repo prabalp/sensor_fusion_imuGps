@@ -6,7 +6,7 @@ gpsFs = 1;
 imu = mpu9250(a,'SampleRate',imuFs,'OutputFormat','matrix');
 gpsObj = gpsdev(a,'SerialPort', 1);
 
-localOrigin =[7.543 78.57 36.9] ;   % us can take the first reading of the sensor
+localOrigin = [0 0 0];   % us can take the first reading of the sensor
 
 imuSamplesPerGPS = (imuFs/gpsFs);
 
@@ -68,9 +68,9 @@ numsamples = 100;
 estPosition = zeros(1,3);
 estOrientation = quaternion.zeros(1,1);
 
-tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
-op = orientationPlotter(tp,'DisplayName','Fused Data',...
-    'LocalAxesLength',2);
+%tp = theaterPlot('XLimit',[-2 2],'YLimit',[-2 2],'ZLimit',[-2 2]);
+%op = orientationPlotter(tp,'DisplayName','Fused Data',...
+ %   'LocalAxesLength',2);
 
 
 idx = 0;
@@ -98,10 +98,8 @@ for sampleIdx = 1:numsamples
             disp(eul);
             disp('position')
             disp(estPosition(1,:));
-            figure(1);
-            scatter(estPosition(1,1), estPosition(1,2)); hold on;
-            plotOrientation(op, eul(1), eul(2), eul(3)); hold on;
-            
+            %plotOrientation(op, eul(1), eul(2), eul(3));
+            %drawnow
         end
     end
     
